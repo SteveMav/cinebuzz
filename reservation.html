@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Reservation - CineBuzz Prototype</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body data-page="reservation">
+    <header class="site-header" data-header>
+      <a class="brand" href="index.html" aria-label="Retour a l'accueil CineBuzz">
+        <img src="assets/cinebuzz-logo.png" alt="CineBuzz">
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" data-nav-toggle>
+        <i data-lucide="menu"></i>
+        <span>Menu</span>
+      </button>
+      <nav class="primary-nav" id="primary-nav" data-nav>
+        <a href="films.html">Films</a>
+        <a href="reservation.html">Reservation</a>
+        <a href="compte.html">Mon compte</a>
+        <a href="index.html#experience">Experience</a>
+        <a class="nav-action" href="connexion.html"><i data-lucide="user"></i> Connexion</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-hero page-hero-compact">
+        <div>
+          <p class="eyebrow">Reservation</p>
+          <h1>Composer sa sortie cinema</h1>
+          <p class="hero-copy">Le prototype simule tout le tunnel : film, horaire, billets, sieges, snacks et panier.</p>
+        </div>
+      </section>
+
+      <section class="section booking-section">
+        <div class="booking-studio">
+          <div class="booking-panel">
+            <div class="panel-heading">
+              <span>1</span>
+              <div>
+                <h3>Seance</h3>
+                <p data-current-session>Selection en cours.</p>
+              </div>
+            </div>
+            <div class="form-grid">
+              <label class="field">
+                <span>Film</span>
+                <select data-booking-movie></select>
+              </label>
+              <label class="field">
+                <span>Jour</span>
+                <select data-booking-day></select>
+              </label>
+              <label class="field">
+                <span>Horaire</span>
+                <select data-booking-time></select>
+              </label>
+            </div>
+
+            <div class="panel-heading">
+              <span>2</span>
+              <div>
+                <h3>Billets</h3>
+                <p>Tarifs observes sur le parcours CineBuzz actuel.</p>
+              </div>
+            </div>
+            <div class="ticket-controls" aria-label="Quantite de billets">
+              <div class="ticket-row" data-ticket-row="adult">
+                <div><strong>Adultes</strong><span>10 USD</span></div>
+                <div class="stepper">
+                  <button type="button" data-ticket-action="minus" aria-label="Retirer adulte"><i data-lucide="minus"></i></button>
+                  <output data-ticket-count="adult">2</output>
+                  <button type="button" data-ticket-action="plus" aria-label="Ajouter adulte"><i data-lucide="plus"></i></button>
+                </div>
+              </div>
+              <div class="ticket-row" data-ticket-row="child">
+                <div><strong>Enfants</strong><span>8 USD</span></div>
+                <div class="stepper">
+                  <button type="button" data-ticket-action="minus" aria-label="Retirer enfant"><i data-lucide="minus"></i></button>
+                  <output data-ticket-count="child">0</output>
+                  <button type="button" data-ticket-action="plus" aria-label="Ajouter enfant"><i data-lucide="plus"></i></button>
+                </div>
+              </div>
+              <div class="ticket-row" data-ticket-row="couple">
+                <div><strong>Couple</strong><span>16 USD</span></div>
+                <div class="stepper">
+                  <button type="button" data-ticket-action="minus" aria-label="Retirer couple"><i data-lucide="minus"></i></button>
+                  <output data-ticket-count="couple">0</output>
+                  <button type="button" data-ticket-action="plus" aria-label="Ajouter couple"><i data-lucide="plus"></i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="seat-stage">
+            <div class="screen-line"><span>Ecran</span></div>
+            <div class="seat-grid" data-seat-grid aria-label="Selection des sieges"></div>
+            <div class="seat-legend" aria-label="Legende des sieges">
+              <span><i class="seat-dot available"></i> Libre</span>
+              <span><i class="seat-dot selected"></i> Selectionne</span>
+              <span><i class="seat-dot occupied"></i> Occupe</span>
+            </div>
+          </div>
+
+          <aside class="order-summary">
+            <div class="panel-heading">
+              <span>3</span>
+              <div>
+                <h3>Panier</h3>
+                <p>Snacks et total avant paiement.</p>
+              </div>
+            </div>
+            <div class="snack-row" aria-label="Snacks">
+              <button type="button" data-snack="popcorn"><i data-lucide="popcorn"></i> Popcorn</button>
+              <button type="button" data-snack="drink"><i data-lucide="cup-soda"></i> Boisson</button>
+            </div>
+            <div data-booking-summary></div>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <img src="assets/cinebuzz-mark.png" alt="CineBuzz">
+      <p>Reservation interactive sans backend, stockee en local pour la demo.</p>
+    </footer>
+  </body>
+</html>

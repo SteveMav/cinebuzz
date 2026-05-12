@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Prototype premium pour une nouvelle experience web CineBuzz Kinshasa.">
+    <title>CineBuzz Kinshasa - Prototype premium</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body data-page="home">
+    <header class="site-header" data-header>
+      <a class="brand" href="index.html" aria-label="Retour a l'accueil CineBuzz">
+        <img src="assets/cinebuzz-logo.png" alt="CineBuzz">
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" data-nav-toggle>
+        <i data-lucide="menu"></i>
+        <span>Menu</span>
+      </button>
+      <nav class="primary-nav" id="primary-nav" data-nav>
+        <a href="films.html">Films</a>
+        <a href="reservation.html">Reservation</a>
+        <a href="compte.html">Mon compte</a>
+        <a href="#experience">Experience</a>
+        <a class="nav-action" href="connexion.html"><i data-lucide="user"></i> Connexion</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="accueil" aria-labelledby="hero-title">
+        <img class="hero-bg" src="assets/hero-cinema.jpg" alt="">
+        <div class="hero-vignette"></div>
+        <div class="hero-content">
+          <p class="eyebrow">Prototype redesign 2026</p>
+          <h1 id="hero-title">CineBuzz Kinshasa</h1>
+          <p class="hero-copy">Une experience cinema plus rapide, plus claire et plus premium, pensee pour decouvrir les films, choisir sa seance et reserver sans friction.</p>
+          <div class="hero-actions" aria-label="Actions principales">
+            <a class="button button-primary" href="reservation.html"><i data-lucide="ticket-check"></i> Reserver une seance</a>
+            <a class="button button-secondary" href="films.html"><i data-lucide="clapperboard"></i> Voir les films</a>
+          </div>
+        </div>
+        <div class="hero-strip" aria-label="Apercu des avantages">
+          <span><strong>2</strong> cinemas a Kinshasa</span>
+          <span><strong>VF / VOSTFR</strong> disponibles</span>
+          <span><strong>MaxiCash</strong> pret pour le paiement</span>
+        </div>
+      </section>
+
+      <section class="section section-compact" id="films" aria-labelledby="films-title">
+        <div class="section-heading">
+          <p class="eyebrow">A l'affiche</p>
+          <h2 id="films-title">Des affiches lisibles, des seances accessibles.</h2>
+          <p>Le visiteur voit tout de suite le film, la salle, la version et le prochain horaire disponible.</p>
+        </div>
+        <div class="tab-row" role="tablist" aria-label="Selection des films">
+          <button class="tab is-active" type="button" data-filter="all">Tous</button>
+          <button class="tab" type="button" data-filter="now">En salle</button>
+          <button class="tab" type="button" data-filter="event">Blockbusters</button>
+          <button class="tab" type="button" data-filter="family">Famille</button>
+        </div>
+        <div class="movie-grid" data-movie-grid></div>
+      </section>
+
+      <section class="section schedule-section" id="seances" aria-labelledby="schedule-title">
+        <div class="section-heading">
+          <p class="eyebrow">Programmation</p>
+          <h2 id="schedule-title">Une grille de seances concue pour le mobile.</h2>
+          <p>Les jours, les salles et les horaires restent visibles sans imposer de carrousel lourd ni de pages cachees.</p>
+        </div>
+        <div class="schedule-shell">
+          <div class="day-tabs" role="tablist" aria-label="Jours disponibles" data-day-tabs></div>
+          <div class="schedule-list" data-schedule-list></div>
+        </div>
+      </section>
+
+      <section class="section prototype-section" id="reservation" aria-labelledby="booking-title">
+        <div class="section-heading">
+          <p class="eyebrow">Prototype complet</p>
+          <h2 id="booking-title">Toutes les pages du parcours sont separees.</h2>
+          <p>Films, details, compte client, inscription, reservation, paiement simule et confirmation ont chacun leur page pour une demo plus realiste.</p>
+        </div>
+        <div class="journey-grid">
+          <a class="journey-card" href="films.html"><i data-lucide="clapperboard"></i><strong>Catalogue films</strong><span>Affiches, filtres et pages detail.</span></a>
+          <a class="journey-card" href="inscription.html"><i data-lucide="user-plus"></i><strong>Creation compte</strong><span>Formulaire client et preferences.</span></a>
+          <a class="journey-card" href="reservation.html"><i data-lucide="armchair"></i><strong>Reservation</strong><span>Seance, billets, sieges et snacks.</span></a>
+          <a class="journey-card" href="paiement.html"><i data-lucide="credit-card"></i><strong>Paiement</strong><span>Resume et paiement MaxiCash simule.</span></a>
+        </div>
+      </section>
+
+      <section class="section venue-section" id="salles" aria-labelledby="venues-title">
+        <div class="section-heading">
+          <p class="eyebrow">Salles</p>
+          <h2 id="venues-title">Deux adresses, une interface unique.</h2>
+          <p>Le client garde le meme parcours, qu'il choisisse UTEX ou Premier Shopping Mall.</p>
+        </div>
+        <div class="venue-grid">
+          <article class="venue">
+            <span class="venue-number">01</span>
+            <h3>CineBuzz - UTEX</h3>
+            <p>Acces rapide aux films, versions et horaires de la salle historique.</p>
+            <a href="reservation.html"><i data-lucide="map-pin"></i> Voir les seances</a>
+          </article>
+          <article class="venue">
+            <span class="venue-number">02</span>
+            <h3>CineBuzz - Premier Shopping Mall</h3>
+            <p>Une fiche salle plus claire pour reserver depuis mobile avant d'arriver.</p>
+            <a href="reservation.html"><i data-lucide="map-pin"></i> Voir les seances</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="section experience-section" id="experience" aria-labelledby="experience-title">
+        <div class="section-heading">
+          <p class="eyebrow">Direction proposee</p>
+          <h2 id="experience-title">Une marque cinema plus premium, sans perdre le cote local.</h2>
+          <p>Le redesign garde le jaune CineBuzz comme signal d'action, avec une interface sombre, nette et focalisee sur la reservation.</p>
+        </div>
+        <div class="impact-grid">
+          <div class="impact-item">
+            <i data-lucide="smartphone"></i>
+            <h3>Mobile en premier</h3>
+            <p>Navigation courte, boutons lisibles et horaires selectionnables au pouce.</p>
+          </div>
+          <div class="impact-item">
+            <i data-lucide="calendar-days"></i>
+            <h3>Programme clair</h3>
+            <p>Les films, jours, versions et prix sont regroupes dans une meme logique.</p>
+          </div>
+          <div class="impact-item">
+            <i data-lucide="shopping-bag"></i>
+            <h3>Panier visible</h3>
+            <p>Billets, sieges et snacks sont calcules avant le paiement.</p>
+          </div>
+          <div class="impact-item">
+            <i data-lucide="sparkles"></i>
+            <h3>Presence premium</h3>
+            <p>Affiches plus grandes, contraste fort et micro-interactions sobres.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <img src="assets/cinebuzz-mark.png" alt="CineBuzz">
+      <p>Prototype HTML, CSS et JS pour presenter une piste d'amelioration du site CineBuzz.</p>
+      <div class="footer-links">
+        <a href="https://cinebuzzcd.com/">Site actuel</a>
+        <a href="https://play.google.com/store/apps/details?id=com.defmaks.cinebuzz">Application Android</a>
+        <a href="tel:+243828856382">+243 82 885 6382</a>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Connexion - CineBuzz Prototype</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body data-page="login">
+    <header class="site-header" data-header>
+      <a class="brand" href="index.html" aria-label="Retour a l'accueil CineBuzz">
+        <img src="assets/cinebuzz-logo.png" alt="CineBuzz">
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" data-nav-toggle>
+        <i data-lucide="menu"></i>
+        <span>Menu</span>
+      </button>
+      <nav class="primary-nav" id="primary-nav" data-nav>
+        <a href="films.html">Films</a>
+        <a href="reservation.html">Reservation</a>
+        <a href="compte.html">Mon compte</a>
+        <a href="index.html#experience">Experience</a>
+        <a class="nav-action" href="inscription.html"><i data-lucide="user-plus"></i> Creer un compte</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="auth-layout">
+        <div class="auth-copy">
+          <p class="eyebrow">Compte CineBuzz</p>
+          <h1>Retrouver ses billets en quelques secondes.</h1>
+          <p class="hero-copy">Le compte client garde les reservations, les preferences de salle et les tickets numeriques pour fluidifier l'arrivee au cinema.</p>
+        </div>
+
+        <form class="glass-panel auth-card" data-auth-form>
+          <h2>Connexion</h2>
+          <label class="field">
+            <span>Email</span>
+            <input name="email" type="email" autocomplete="email" placeholder="client@cinebuzz.cd" required>
+          </label>
+          <label class="field">
+            <span>Mot de passe</span>
+            <input name="password" type="password" autocomplete="current-password" placeholder="........" required>
+          </label>
+          <button class="button button-primary full-width" type="submit"><i data-lucide="log-in"></i> Se connecter</button>
+          <p class="form-note">Pas encore de compte ? <a href="inscription.html">Creer un compte</a></p>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>

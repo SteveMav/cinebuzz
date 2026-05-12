@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Paiement - CineBuzz Prototype</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body data-page="checkout">
+    <header class="site-header" data-header>
+      <a class="brand" href="index.html" aria-label="Retour a l'accueil CineBuzz">
+        <img src="assets/cinebuzz-logo.png" alt="CineBuzz">
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" data-nav-toggle>
+        <i data-lucide="menu"></i>
+        <span>Menu</span>
+      </button>
+      <nav class="primary-nav" id="primary-nav" data-nav>
+        <a href="films.html">Films</a>
+        <a href="reservation.html">Reservation</a>
+        <a href="compte.html">Mon compte</a>
+        <a href="index.html#experience">Experience</a>
+        <a class="nav-action" href="connexion.html"><i data-lucide="user"></i> Connexion</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-hero page-hero-compact">
+        <div>
+          <p class="eyebrow">Paiement securise</p>
+          <h1>Finaliser avec MaxiCash</h1>
+          <p class="hero-copy">La page montre le resume et simule la redirection paiement. Aucun vrai paiement n'est envoye.</p>
+        </div>
+      </section>
+
+      <section class="section two-column">
+        <form class="glass-panel" data-payment-form>
+          <div class="panel-heading">
+            <span>1</span>
+            <div>
+              <h3>Coordonnees</h3>
+              <p data-checkout-account>Invite demo.</p>
+            </div>
+          </div>
+          <label class="field">
+            <span>Nom complet</span>
+            <input name="name" autocomplete="name" placeholder="Steve Demo">
+          </label>
+          <label class="field">
+            <span>Email</span>
+            <input name="email" type="email" autocomplete="email" placeholder="client@cinebuzz.cd">
+          </label>
+          <label class="field">
+            <span>Telephone MaxiCash</span>
+            <input name="phone" autocomplete="tel" placeholder="+243 82 885 6382">
+          </label>
+          <div class="payment-methods">
+            <label><input type="radio" name="payment" checked> MaxiCash</label>
+            <label><input type="radio" name="payment"> Carte bancaire</label>
+            <label><input type="radio" name="payment"> Mobile money</label>
+          </div>
+          <button class="button button-primary full-width" type="submit"><i data-lucide="shield-check"></i> Simuler le paiement</button>
+        </form>
+
+        <aside class="order-summary">
+          <div class="panel-heading">
+            <span>2</span>
+            <div>
+              <h3>Resume</h3>
+              <p>Derniere verification avant validation.</p>
+            </div>
+          </div>
+          <div data-checkout-summary></div>
+        </aside>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <img src="assets/cinebuzz-mark.png" alt="CineBuzz">
+      <p>Paiement simule pour demonstration commerciale uniquement.</p>
+    </footer>
+  </body>
+</html>

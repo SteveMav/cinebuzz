@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Films - CineBuzz Prototype</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body data-page="films">
+    <header class="site-header" data-header>
+      <a class="brand" href="index.html" aria-label="Retour a l'accueil CineBuzz">
+        <img src="assets/cinebuzz-logo.png" alt="CineBuzz">
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" data-nav-toggle>
+        <i data-lucide="menu"></i>
+        <span>Menu</span>
+      </button>
+      <nav class="primary-nav" id="primary-nav" data-nav>
+        <a href="films.html">Films</a>
+        <a href="reservation.html">Reservation</a>
+        <a href="compte.html">Mon compte</a>
+        <a href="index.html#experience">Experience</a>
+        <a class="nav-action" href="connexion.html"><i data-lucide="user"></i> Connexion</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-hero page-hero-compact">
+        <div>
+          <p class="eyebrow">Catalogue demo</p>
+          <h1>Films et seances</h1>
+          <p class="hero-copy">Une page claire pour explorer les films, filtrer par usage et entrer dans une fiche film avant de reserver.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="toolbar">
+          <label class="field">
+            <span>Recherche</span>
+            <input type="search" placeholder="Michael, Mortal Kombat..." data-film-search>
+          </label>
+          <label class="field">
+            <span>Categorie</span>
+            <select data-film-filter>
+              <option value="all">Tous les films</option>
+              <option value="now">En salle</option>
+              <option value="event">Blockbusters</option>
+              <option value="family">Famille</option>
+            </select>
+          </label>
+        </div>
+        <div class="movie-grid" data-film-list></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <img src="assets/cinebuzz-mark.png" alt="CineBuzz">
+      <p>Prototype multi-pages sans backend pour demo CineBuzz.</p>
+    </footer>
+  </body>
+</html>
