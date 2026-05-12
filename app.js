@@ -218,6 +218,33 @@ function applyThemeToggle() {
   updateButton();
 }
 
+function applyMobileTabbar() {
+  if ($(".mobile-tabbar")) return;
+  const page = document.body.dataset.page || "";
+  const tabbar = document.createElement("nav");
+  tabbar.className = "mobile-tabbar";
+  tabbar.setAttribute("aria-label", "Navigation mobile");
+  tabbar.innerHTML = `
+    <a href="index.html" class="${page === "home" ? "is-active" : ""}">
+      <i data-lucide="home"></i>
+      <span>Accueil</span>
+    </a>
+    <a href="films.html" class="${page === "films" || page === "film" ? "is-active" : ""}">
+      <i data-lucide="clapperboard"></i>
+      <span>Films</span>
+    </a>
+    <a href="reservation.html" class="${page === "reservation" || page === "checkout" || page === "confirmation" ? "is-active" : ""}">
+      <i data-lucide="ticket"></i>
+      <span>Reserver</span>
+    </a>
+    <a href="compte.html" class="${page === "account" || page === "login" || page === "signup" ? "is-active" : ""}">
+      <i data-lucide="user"></i>
+      <span>Compte</span>
+    </a>
+  `;
+  document.body.appendChild(tabbar);
+}
+
 function renderMovieCards(target, movies, options = {}) {
   if (!target) return;
 
@@ -649,6 +676,7 @@ function initAccountPage() {
 function boot() {
   applyThemeToggle();
   applyHeader();
+  applyMobileTabbar();
   const page = document.body.dataset.page;
   if (page === "home") initHomePage();
   if (page === "films") initFilmsPage();

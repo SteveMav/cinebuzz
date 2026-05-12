@@ -76,10 +76,12 @@ html[data-theme="light"] {
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
   margin: 0;
+  overflow-x: hidden;
   background:
     linear-gradient(180deg, var(--page-glow), transparent 24rem),
     var(--bg);
@@ -228,6 +230,10 @@ html[data-theme="light"] .brand img {
   border-color: rgba(255, 193, 7, 0.45);
   background: var(--hover);
   outline: none;
+}
+
+.mobile-tabbar {
+  display: none;
 }
 
 .nav-toggle {
@@ -1348,29 +1354,74 @@ html[data-theme="light"] .footer-brand img {
 }
 
 @media (max-width: 680px) {
+  body {
+    padding-bottom: calc(78px + env(safe-area-inset-bottom));
+  }
+
   .site-header {
     top: 8px;
-    width: calc(100% - 16px);
-    min-height: 60px;
-    padding: 10px;
+    width: calc(100% - 20px);
+    min-height: 56px;
+    align-items: center;
+    padding: 9px 10px;
+    border-radius: 14px;
   }
 
   .brand {
-    width: 118px;
+    width: 112px;
+  }
+
+  html[data-theme="light"] .brand {
+    padding: 7px 10px;
+  }
+
+  html[data-theme="light"] .brand img {
+    width: 112px;
+  }
+
+  .nav-toggle {
+    min-height: 38px;
+    padding: 7px 9px;
+    border-radius: 10px;
+  }
+
+  .primary-nav {
+    position: fixed;
+    top: 72px;
+    right: 10px;
+    left: 10px;
+    gap: 4px;
+    padding: 8px;
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+  }
+
+  .primary-nav a,
+  .primary-nav .theme-toggle {
+    min-height: 46px;
+    border-radius: 10px;
   }
 
   .hero {
     display: block;
     min-height: auto;
-    padding: 126px 16px 56px;
+    padding: 112px 16px 44px;
   }
 
   h1 {
-    font-size: 2.55rem;
+    max-width: 100%;
+    font-size: 2.25rem;
+    overflow-wrap: break-word;
   }
 
   h2 {
-    font-size: 1.72rem;
+    max-width: 100%;
+    font-size: 1.56rem;
+    overflow-wrap: break-word;
+  }
+
+  h3 {
+    overflow-wrap: break-word;
   }
 
   .hero-copy,
@@ -1378,8 +1429,17 @@ html[data-theme="light"] .footer-brand img {
     font-size: 1rem;
   }
 
+  .hero-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-top: 24px;
+  }
+
   .button {
     width: 100%;
+    min-height: 48px;
+    padding: 12px 14px;
   }
 
   .hero-strip {
@@ -1387,17 +1447,36 @@ html[data-theme="light"] .footer-brand img {
     right: auto;
     bottom: auto;
     left: auto;
-    grid-template-columns: 1fr;
-    margin-top: 24px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin-top: 20px;
+    border-radius: 14px;
   }
 
   .hero-strip span {
-    min-height: 54px;
-    padding: 12px 14px;
+    min-height: 74px;
+    padding: 10px;
+    font-size: 0.78rem;
+  }
+
+  .hero-strip strong {
+    font-size: 1.05rem;
+  }
+
+  .eyebrow {
+    font-size: 0.76rem;
   }
 
   .section {
-    padding: 76px 16px;
+    padding: 56px 16px;
+  }
+
+  .section-compact {
+    padding-top: 52px;
+  }
+
+  .section-heading {
+    gap: 12px;
+    margin-bottom: 22px;
   }
 
   .movie-grid,
@@ -1410,38 +1489,207 @@ html[data-theme="light"] .footer-brand img {
     grid-template-columns: 1fr;
   }
 
+  .account-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .account-stats .impact-item {
+    gap: 10px;
+    padding: 16px;
+  }
+
+  .account-stats .impact-item h3 {
+    font-size: 1rem;
+  }
+
+  .account-stats .impact-item p {
+    font-size: 0.84rem;
+  }
+
   .page-hero {
-    min-height: 360px;
-    padding: 126px 16px 56px;
+    min-height: 300px;
+    padding: 112px 16px 44px;
+  }
+
+  .booking-section,
+  .two-column,
+  .account-layout {
+    padding-top: 42px;
   }
 
   .auth-layout {
-    padding: 126px 16px 56px;
-  }
-
-  .confirmation-panel {
-    padding: 22px;
+    min-height: auto;
+    gap: 24px;
+    padding: 112px 16px 48px;
   }
 
   .movie-card,
   .movie-card img {
-    min-height: 430px;
+    min-height: 0;
+  }
+
+  .movie-card {
+    height: clamp(340px, 108vw, 410px);
+  }
+
+  .movie-card img {
+    height: 100%;
+  }
+
+  .movie-info {
+    gap: 7px;
+    padding: 14px;
+  }
+
+  .movie-info h3 {
+    font-size: 1.12rem;
+  }
+
+  .movie-info p {
+    font-size: 0.84rem;
+  }
+
+  .chip {
+    min-height: 26px;
+    padding: 4px 7px;
+    font-size: 0.72rem;
   }
 
   .showtime-card {
     padding: 14px;
   }
 
+  .booking-studio,
+  .two-column,
+  .confirmation-layout,
+  .account-layout {
+    gap: 14px;
+  }
+
+  .booking-panel,
+  .seat-stage,
+  .order-summary,
+  .glass-panel,
+  .confirmation-panel {
+    width: 100%;
+    min-width: 0;
+    padding: 16px;
+  }
+
+  .panel-heading {
+    gap: 10px;
+  }
+
+  .panel-heading > span {
+    flex: 0 0 32px;
+    width: 32px;
+    height: 32px;
+  }
+
+  .ticket-row {
+    min-height: 58px;
+    gap: 8px;
+    padding: 10px;
+  }
+
+  .ticket-row > div:first-child {
+    min-width: 0;
+  }
+
+  .stepper {
+    flex: 0 0 auto;
+    grid-template-columns: 34px 32px 34px;
+  }
+
+  .stepper button {
+    width: 34px;
+    height: 34px;
+  }
+
+  .screen-line {
+    height: 44px;
+    font-size: 0.82rem;
+  }
+
   .seat-grid {
-    gap: 7px;
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+    gap: 6px;
   }
 
   .seat {
     font-size: 0.7rem;
+    min-height: 36px;
+  }
+
+  .seat-legend {
+    gap: 10px;
+    font-size: 0.8rem;
+  }
+
+  .snack-row button {
+    flex-basis: 100%;
+  }
+
+  .summary-movie img {
+    width: 58px;
+    height: 78px;
+  }
+
+  .grand-total {
+    align-items: center;
+  }
+
+  .grand-total strong {
+    font-size: 1.55rem;
+  }
+
+  .account-card,
+  .account-main {
+    gap: 14px;
   }
 
   .site-footer {
     grid-template-columns: 1fr;
-    padding: 42px 16px 52px;
+    gap: 22px;
+    padding: 42px 16px calc(94px + env(safe-area-inset-bottom));
+  }
+
+  .mobile-tabbar {
+    position: fixed;
+    right: 10px;
+    bottom: calc(10px + env(safe-area-inset-bottom));
+    left: 10px;
+    z-index: 30;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+    padding: 7px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: var(--surface-glass);
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(18px);
+  }
+
+  .mobile-tabbar a {
+    display: grid;
+    min-height: 47px;
+    place-items: center;
+    gap: 2px;
+    color: var(--muted);
+    border-radius: 10px;
+    font-size: 0.68rem;
+    font-weight: 800;
+    text-decoration: none;
+  }
+
+  .mobile-tabbar a.is-active {
+    color: var(--on-brand);
+    background: var(--brand);
+  }
+
+  .mobile-tabbar svg {
+    width: 17px;
+    height: 17px;
   }
 }
