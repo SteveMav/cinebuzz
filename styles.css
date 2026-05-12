@@ -208,11 +208,13 @@ html[data-theme="light"] .brand img {
 
 .theme-toggle {
   display: inline-flex;
+  width: 42px;
   min-height: 42px;
+  flex: 0 0 42px;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 9px 12px;
+  padding: 0;
   color: var(--text);
   border: 1px solid var(--line);
   border-radius: var(--radius);
@@ -913,44 +915,54 @@ h3 {
 
 .site-footer {
   display: grid;
-  gap: 18px;
-  justify-items: center;
-  padding: 54px 24px 64px;
+  grid-template-columns: minmax(240px, 1.2fr) repeat(3, minmax(160px, 0.8fr));
+  gap: 28px;
+  padding: 54px max(24px, calc((100vw - 1180px) / 2)) 64px;
   color: var(--muted);
-  text-align: center;
   border-top: 1px solid var(--line);
   background: var(--footer-bg);
 }
 
-.site-footer img {
-  width: 86px;
+.footer-brand,
+.footer-column {
+  display: grid;
+  gap: 12px;
+  align-content: start;
 }
 
-html[data-theme="light"] .site-footer img {
+.footer-brand img {
+  width: 96px;
+}
+
+html[data-theme="light"] .footer-brand img {
   width: auto;
-  max-width: 112px;
+  max-width: 124px;
   padding: 9px 12px;
   border-radius: var(--radius);
   background: var(--dark-plate);
 }
 
-.site-footer p {
-  max-width: 560px;
+.footer-brand p,
+.footer-column span {
+  max-width: 300px;
   margin: 0;
 }
 
-.footer-links {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
+.footer-column h3 {
+  color: var(--text);
+  font-size: 1rem;
 }
 
-.footer-links a {
-  padding: 8px 10px;
+.footer-column a {
+  width: max-content;
+  color: var(--muted);
+  transition: color 180ms ease;
+}
+
+.footer-column a:hover,
+.footer-column a:focus-visible {
   color: var(--text);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
+  outline: none;
 }
 
 .page-hero {
@@ -1279,6 +1291,16 @@ html[data-theme="light"] .site-footer img {
     justify-content: flex-start;
   }
 
+  .primary-nav .theme-toggle {
+    width: 100%;
+    justify-content: flex-start;
+    padding: 9px 13px;
+  }
+
+  .primary-nav .theme-toggle::after {
+    content: attr(data-theme-label);
+  }
+
   h1 {
     font-size: 3.35rem;
   }
@@ -1318,6 +1340,10 @@ html[data-theme="light"] .site-footer img {
 
   .account-card {
     position: static;
+  }
+
+  .site-footer {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -1412,5 +1438,10 @@ html[data-theme="light"] .site-footer img {
 
   .seat {
     font-size: 0.7rem;
+  }
+
+  .site-footer {
+    grid-template-columns: 1fr;
+    padding: 42px 16px 52px;
   }
 }

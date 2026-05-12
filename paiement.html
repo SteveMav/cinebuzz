@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Paiement - CineBuzz Prototype</title>
+    <title>Paiement - CineBuzz</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
@@ -34,7 +34,7 @@
         <div>
           <p class="eyebrow">Paiement securise</p>
           <h1>Finaliser avec MaxiCash</h1>
-          <p class="hero-copy">La page montre le resume et simule la redirection paiement. Aucun vrai paiement n'est envoye.</p>
+          <p class="hero-copy">Verifiez votre reservation et choisissez votre moyen de paiement securise.</p>
         </div>
       </section>
 
@@ -44,12 +44,12 @@
             <span>1</span>
             <div>
               <h3>Coordonnees</h3>
-              <p data-checkout-account>Invite demo.</p>
+              <p data-checkout-account>Connexion possible avec votre compte CineBuzz.</p>
             </div>
           </div>
           <label class="field">
             <span>Nom complet</span>
-            <input name="name" autocomplete="name" placeholder="Steve Demo">
+            <input name="name" autocomplete="name" placeholder="Nom et prenom">
           </label>
           <label class="field">
             <span>Email</span>
@@ -64,7 +64,7 @@
             <label><input type="radio" name="payment"> Carte bancaire</label>
             <label><input type="radio" name="payment"> Mobile money</label>
           </div>
-          <button class="button button-primary full-width" type="submit"><i data-lucide="shield-check"></i> Simuler le paiement</button>
+          <button class="button button-primary full-width" type="submit"><i data-lucide="shield-check"></i> Payer avec MaxiCash</button>
         </form>
 
         <aside class="order-summary">
@@ -81,8 +81,26 @@
     </main>
 
     <footer class="site-footer">
-      <img src="assets/cinebuzz-mark.png" alt="CineBuzz">
-      <p>Paiement simule pour demonstration commerciale uniquement.</p>
+      <div class="footer-brand">
+        <img src="assets/cinebuzz-mark.png" alt="CineBuzz">
+        <p>Films, seances et reservations en ligne a Kinshasa.</p>
+      </div>
+      <div class="footer-column">
+        <h3>Navigation</h3>
+        <a href="films.html">Films</a>
+        <a href="reservation.html">Reservation</a>
+        <a href="compte.html">Mon compte</a>
+      </div>
+      <div class="footer-column">
+        <h3>Cinemas</h3>
+        <span>CineBuzz - UTEX</span>
+        <span>Premier Shopping Mall</span>
+      </div>
+      <div class="footer-column">
+        <h3>Contact</h3>
+        <a href="tel:+243828856382">+243 82 885 6382</a>
+        <a href="https://play.google.com/store/apps/details?id=com.defmaks.cinebuzz">Application Android</a>
+      </div>
     </footer>
   </body>
 </html>

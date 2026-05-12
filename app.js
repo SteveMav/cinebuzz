@@ -202,7 +202,9 @@ function applyThemeToggle() {
   function updateButton() {
     const isLight = document.documentElement.dataset.theme === "light";
     button.setAttribute("aria-label", isLight ? "Passer au theme sombre" : "Passer au theme clair");
-    button.innerHTML = `<i data-lucide="${isLight ? "moon" : "sun"}"></i><span>${isLight ? "Sombre" : "Clair"}</span>`;
+    button.title = isLight ? "Theme sombre" : "Theme clair";
+    button.dataset.themeLabel = isLight ? "Sombre" : "Clair";
+    button.innerHTML = `<i data-lucide="${isLight ? "moon" : "sun"}"></i>`;
     window.lucide?.createIcons();
   }
 
@@ -539,7 +541,7 @@ function initCheckoutPage() {
   renderStaticSummary(booking, $("[data-checkout-summary]"));
 
   if (accountLine) {
-    accountLine.textContent = user ? `Connecte comme ${user.name}` : "Invite demo - connexion possible mais non obligatoire.";
+    accountLine.textContent = user ? `Connecte comme ${user.name}` : "Connexion possible avec votre compte CineBuzz.";
   }
 
   form?.addEventListener("submit", (event) => {
@@ -549,8 +551,8 @@ function initCheckoutPage() {
       createdAt: "12 mai 2026",
       booking,
       user: user || {
-        name: form.elements.name.value || "Invite CineBuzz",
-        email: form.elements.email.value || "invite@cinebuzz.demo"
+        name: form.elements.name.value || "Client CineBuzz",
+        email: form.elements.email.value || "client@cinebuzz.cd"
       }
     };
     localStorage.setItem("cinebuzzLastOrder", JSON.stringify(order));
@@ -592,8 +594,8 @@ function initConfirmationPage() {
       <span class="success-icon"><i data-lucide="check"></i></span>
       <p class="eyebrow">Reservation confirmee</p>
       <h1>${code}</h1>
-      <p class="hero-copy">Le billet est pret dans l'espace client. Cette confirmation simule l'etape apres paiement MaxiCash.</p>
-      <div class="qr-demo" aria-label="QR code demo"></div>
+      <p class="hero-copy">Le billet est pret dans l'espace client. Vous pouvez le presenter a l'entree de la salle.</p>
+      <div class="qr-demo" aria-label="QR code billet"></div>
       <div class="hero-actions">
         <a class="button button-primary" href="compte.html"><i data-lucide="user"></i> Voir mon compte</a>
         <a class="button button-secondary" href="films.html"><i data-lucide="clapperboard"></i> Nouveau film</a>
@@ -621,8 +623,8 @@ function initAuthPage(mode) {
 
 function initAccountPage() {
   const user = userFromStorage() || {
-    name: "Steve Demo",
-    email: "demo@cinebuzz.cd",
+    name: "Client CineBuzz",
+    email: "client@cinebuzz.cd",
     phone: "+243 82 885 6382"
   };
   const booking = bookingFromStorage();

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Mon compte - CineBuzz Prototype</title>
+    <title>Mon compte - CineBuzz</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
@@ -42,7 +42,7 @@
         <aside class="glass-panel account-card">
           <div class="avatar-demo">CB</div>
           <div class="profile-lines" data-account-profile></div>
-          <button class="button button-secondary full-width" type="button" data-logout><i data-lucide="log-out"></i> Deconnexion demo</button>
+          <button class="button button-secondary full-width" type="button" data-logout><i data-lucide="log-out"></i> Deconnexion</button>
         </aside>
 
         <div class="account-main">
@@ -58,7 +58,7 @@
               <span>Ticket</span>
               <div>
                 <h3>Derniere reservation</h3>
-                <p>Synchronisee avec la reservation demo.</p>
+                <p>Votre reservation la plus recente.</p>
               </div>
             </div>
             <div data-account-order></div>
@@ -69,8 +69,26 @@
     </main>
 
     <footer class="site-footer">
-      <img src="assets/cinebuzz-mark.png" alt="CineBuzz">
-      <p>Espace client simule avec stockage local, sans base de donnees.</p>
+      <div class="footer-brand">
+        <img src="assets/cinebuzz-mark.png" alt="CineBuzz">
+        <p>Films, seances et reservations en ligne a Kinshasa.</p>
+      </div>
+      <div class="footer-column">
+        <h3>Navigation</h3>
+        <a href="films.html">Films</a>
+        <a href="reservation.html">Reservation</a>
+        <a href="compte.html">Mon compte</a>
+      </div>
+      <div class="footer-column">
+        <h3>Cinemas</h3>
+        <span>CineBuzz - UTEX</span>
+        <span>Premier Shopping Mall</span>
+      </div>
+      <div class="footer-column">
+        <h3>Contact</h3>
+        <a href="tel:+243828856382">+243 82 885 6382</a>
+        <a href="https://play.google.com/store/apps/details?id=com.defmaks.cinebuzz">Application Android</a>
+      </div>
     </footer>
   </body>
 </html>
